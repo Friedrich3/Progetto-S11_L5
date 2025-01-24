@@ -20,20 +20,21 @@ interface EachSong{
 const MusicPlayer = function (props :EachSong ) {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [audio, setAudio] = useState(new Audio(''))
+//   const [audio, setAudio] = useState(new Audio(''))
 
 
   useEffect(()=>{
+       const audio = new Audio('') 
+       //audio.src = props.song?.preview
     // audio.src = props.song!.preview
   },[props.song])
 
   const playMusic = function () {
    // audio.src = 'newsong.mp3' SERVE PER CAMBIARE CANZONE
     if(isPlaying){
-        audio.pause()
+        return
     }else{
-        audio.play()
+        return
     }
     setIsPlaying(!isPlaying);
     
