@@ -9,7 +9,7 @@ interface ItemProps{
 const RadioItem = function (props:ItemProps) {
   return (
     <>
-      <Card className="bg-dark border-0 h-100">
+      <Card className="bg-transparent border-0 h-100">
         <Card.Img variant="top" src={props.cover} className=" rounded-4"/>
         <Card.Body>
           <Card.Title className="text-white">{props.title}</Card.Title>

@@ -9,7 +9,7 @@ interface ItemProps{
 const NewsItem = function (props:ItemProps) {
   return (
     <>
-      <Card className="bg-dark border-0 h-100">
+      <Card className=" bg-transparent border-0 h-100">
         <Card.Body>
           <small className="fw-bold text-secondary">NUOVA STAZIONE RADIO</small>
           <Card.Title className="text-white">{props.title}</Card.Title>

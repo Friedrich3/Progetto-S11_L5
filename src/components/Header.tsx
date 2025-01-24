@@ -3,8 +3,8 @@ import { Broadcast, Grid, House } from "react-bootstrap-icons";
 
 const Header = function () {
   return (
-      <Navbar expand="lg" bg="dark" data-bs-theme="dark" className=" flex-lg-column">
-        <Container fluid className="px-4 flex-lg-column">
+      <Navbar expand="lg"  data-bs-theme="dark" className=" flex-lg-column">
+        <Container fluid className="px-4 pe-lg-0 flex-lg-column">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Brand href="#">
             <img
@@ -21,18 +21,15 @@ const Header = function () {
                   <Col xs="auto">
                     <Form.Control
                       type="text"
-                      placeholder="Search..."
+                      placeholder='Search...'
                       className=""
                     />
                   </Col>
-                  <Col xs="auto">
-                    <Button type="submit" variant="secondary">Search</Button>
-                  </Col>
                 </Row>
               </Form>
-              <Nav.Link href=""><House></House> Home</Nav.Link>
-              <Nav.Link href=""><Grid></Grid> News</Nav.Link>
-              <Nav.Link href=""><Broadcast></Broadcast> Radio</Nav.Link>
+              <Nav.Link href="" ><House className="custom-text"></House> Home</Nav.Link>
+              <Nav.Link href="" active><Grid className="custom-text"></Grid> News</Nav.Link>
+              <Nav.Link href=""><Broadcast className="custom-text"></Broadcast> Radio</Nav.Link>
 
             </Nav>
           </Navbar.Collapse>
