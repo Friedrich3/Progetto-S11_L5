@@ -25,7 +25,7 @@ const MusicPlayer = function (props :EachSong ) {
 
 
   useEffect(()=>{
-    audio.src = props.song!.preview
+    // audio.src = props.song!.preview
   },[props.song])
 
   const playMusic = function () {
