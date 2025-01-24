@@ -1,25 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import {
   FastForwardFill,
-
   PauseCircleFill,
   PauseFill,
-  
   PlayCircleFill,
   PlayFill,
   RewindFill,
 } from "react-bootstrap-icons";
+import { SearchResponse } from "../types/SearchFetch";
 
-const MusicPlayer = function () {
+
+
+interface EachSong{
+    song: SearchResponse | null
+}
+
+
+const MusicPlayer = function (props :EachSong ) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState<string[]>([]);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [audio, setAudio] = useState(new Audio(''))
 
+
+  useEffect(()=>{
+    audio.src = props.song!.preview
+  },[props.song])
+
   const playMusic = function () {
-
    // audio.src = 'newsong.mp3' SERVE PER CAMBIARE CANZONE
-
     if(isPlaying){
         audio.pause()
     }else{
@@ -44,14 +54,14 @@ const MusicPlayer = function () {
           </Col>
 
           <Col className="justify-content-center bg-secondary d-flex align-content-center py-1">
-            {currentSong.length === 0 ? (
+            {/* {currentSong.length === 0 ? ( */}
               <img src="../public/assets/logos/apple.svg" alt="Logo Apple" />
-            ) : (
+            {/*  ) : (
               <div className="d-flex ">
-                <img src="" alt="" />
+                 <img src="" alt="" />
                 <p>Titolo Canzone</p>
-              </div>
-            )}
+               </div>
+             )} */}
           </Col>
           <Col className=" text-end">
             <Button type="button" variant="outline-secondary">

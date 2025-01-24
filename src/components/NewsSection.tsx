@@ -24,7 +24,7 @@ const responsive = {
 const NewsSection = function () {
   return (
     <>
-      <Container fluid>
+      <Container fluid className="mt-5 pt-4">
         <Row>
           <h2>Novità</h2>
           <hr />

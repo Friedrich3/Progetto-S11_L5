@@ -9,6 +9,11 @@ import { SearchResponse } from "../types/SearchFetch";
 import Loader from "./Loader";
 import ErrorHandler from "./ErrorHandler";
 
+
+interface SongChanger{
+    setCurrentSong: (song: SearchResponse|null) => void; //INTERNET Miracoloso 
+}
+
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -31,7 +36,7 @@ const url1 =
   
 const url2 = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Hiroyuki%20Sawano ";
 
-const NewReleases = function () {
+const NewReleases = function (props : SongChanger) {
   const [searchUrl1, setSearchUrl1] = useState<null | SearchResponse[]>(null);
   const [searchUrl2, setSearchUrl2] = useState<null | SearchResponse[]>(null);
   const [isError1, setIsError1] = useState(false)
@@ -102,7 +107,7 @@ const NewReleases = function () {
                     if (index < 10) {
                       return (
                         <div className="px-3" key={element.id}>
-                          <NewReleasesItem song={element} />
+                          <NewReleasesItem song={element} setCurrentSong={props.setCurrentSong}/>
                         </div>
                       );
                     }
@@ -132,7 +137,7 @@ const NewReleases = function () {
                     if (index < 10) {
                       return (
                         <div className="px-3" key={element.id}>
-                          <NewReleasesItem song={element} />
+                          <NewReleasesItem song={element} setCurrentSong={props.setCurrentSong}/>
                         </div>
                       );
                     }

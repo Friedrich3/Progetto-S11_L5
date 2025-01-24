@@ -3,8 +3,8 @@ import { Broadcast, Grid, House } from "react-bootstrap-icons";
 
 const Header = function () {
   return (
-      <Navbar expand="lg"  data-bs-theme="dark" className=" flex-lg-column">
-        <Container fluid className="px-4 pe-lg-0 flex-lg-column">
+      <Navbar expand="lg"  data-bs-theme="dark" className=" flex-lg-column custom-sticky">
+        <Container fluid className="px-4 pe-lg-0 flex-lg-column ">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Brand href="#">
             <img
@@ -22,7 +22,7 @@ const Header = function () {
                     <Form.Control
                       type="text"
                       placeholder='Search...'
-                      className=""
+                      className="mt-3"
                     />
                   </Col>
                 </Row>
