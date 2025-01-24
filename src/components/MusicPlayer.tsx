@@ -19,22 +19,31 @@ interface EachSong{
 
 const MusicPlayer = function (props :EachSong ) {
   const [isPlaying, setIsPlaying] = useState(false);
+  
+  const [currentAudio,setCurrentAudio] = useState<HTMLAudioElement | null>( null)
 
-//   const [audio, setAudio] = useState(new Audio(''))
+
 
 
   useEffect(()=>{
-       const audio = new Audio('') 
+        currentAudio?.pause()
+        setIsPlaying(false)
+        const audio = new Audio(props.song?.preview)
+        setCurrentAudio(audio)
+        return () => {audio.pause()
+            setCurrentAudio(null)
+        }
+       
        //audio.src = props.song?.preview
-    // audio.src = props.song!.preview
+       //audio.src = props.song!.preview
   },[props.song])
 
   const playMusic = function () {
    // audio.src = 'newsong.mp3' SERVE PER CAMBIARE CANZONE
-    if(isPlaying){
-        return
+   if(isPlaying){
+       currentAudio?.pause()
     }else{
-        return
+        currentAudio?.play()
     }
     setIsPlaying(!isPlaying);
     
@@ -42,6 +51,7 @@ const MusicPlayer = function (props :EachSong ) {
 
   return (
     <>
+    
       <Container fluid className="custom-position">
         <Row className="d-none d-lg-flex py-2">
           <Col className="d-flex justify-content-evenly align-items-center">
@@ -74,11 +84,11 @@ const MusicPlayer = function (props :EachSong ) {
         <Row className="d-flex d-lg-none py-2">
         <Col className="d-flex justify-content-between align-items-center">
             <div className="d-flex">
-                <img src="https://placecats.com/50/50" alt="" />
+                <img src={props.song?.album.cover_small} alt="" />
                 <div className="ps-2">
 
-                <p className="m-0">Titolo</p>
-                <p className="m-0">Artista</p>
+                <p className="m-0">{props.song?.title_short}</p>
+                <p className="m-0">{props.song?.artist.name}</p>
                 </div>
             </div>
             <div>
