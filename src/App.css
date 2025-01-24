@@ -14,3 +14,24 @@
 .pointer{
     cursor: pointer;
 }
+
+@media screen and (max-width: 991px){
+    .custom-position{
+        background-color: #2c2c2c;
+        width: 97% !important;
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+        border-radius: 8px;
+}
+
+
+}
+
+@media screen and (min-width: 992px){
+    .custom-position{
+        padding: 0;
+        background-color: #2c2c2c;
+        position: static;
+    } 
+}

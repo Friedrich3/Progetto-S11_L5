@@ -13,7 +13,7 @@ const Header = function () {
               alt="Apple Music Logo"
             />
           </Navbar.Brand>
-          <Button variant="outline-secondary" type="button" className=" d-lg-none">Log-In</Button>
+          <Button variant="outline-secondary" type="button" className=" d-lg-none">Accedi</Button>
           <Navbar.Collapse id="basic-navbar-nav" className="custom-text flex-lg-column">
             <Nav className="me-auto flex-lg-column">
               <Form>
